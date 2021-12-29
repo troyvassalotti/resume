@@ -8,11 +8,11 @@
 [build.environment]
     NODE_VERSION = "14"
 
-#[[redirects]]
-#    from = "https://troyvassalotti.netlify.com/*"
-#    to = "https://resume.troyv.dev/:splat"
-#    status = 301
-#    force = true
+[[redirects]]
+    from = "https://nifty-dubinsky-1f8fdd.netlify.app/*"
+    to = "https://resume.troyv.dev/:splat"
+    status = 301
+    force = true
 
 [[headers]]
     for = "/*"
