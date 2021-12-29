@@ -1,0 +1,22 @@
+[build]
+    command = "npm run build"
+    publish = "dist"
+
+[build.processing]
+    skip_processing = true
+
+[build.environment]
+    NODE_VERSION = "14"
+
+#[[redirects]]
+#    from = "https://troyvassalotti.netlify.com/*"
+#    to = "https://resume.troyv.dev/:splat"
+#    status = 301
+#    force = true
+
+[[headers]]
+    for = "/*"
+    [headers.values]
+        X-Content-Type-Options = "nosniff"
+        X-Frame-Options = "SAMEORIGIN"
+        X-XSS-Protection = "1"

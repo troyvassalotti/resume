@@ -1,0 +1,180 @@
+{
+  "layout": "base",
+  "domain": "resume.troyv.dev",
+  "website": "https://resume.troyv.dev/",
+  "title": "Résumé",
+  "description": "An online version of my résumé. Easily printable!.",
+  "meta": {
+    "name": "Troy Vassalotti",
+    "twitter": "@validcharacters",
+    "pronouns": "he/him",
+    "picture": "professional.jpg",
+    "title": "Web Developer",
+    "location": "Maryland, US",
+    "contact": {
+      "email": "troy@troyv.dev",
+      "website": "https://www.troyv.dev"
+    },
+    "socials": {
+      "hideonprint": true,
+      "accounts": {
+        "github": "https://github.com/troyvassalotti",
+        "linkedin": "https://linkedin.com/in/troyvassalotti"
+      }
+    }
+  },
+  "experience": [
+    {
+      "job": "Bakery Associate",
+      "employer": {
+        "name": "Weis Markets",
+        "city": "Damascus, MD",
+        "website": "https://www.weismarkets.com/"
+      },
+      "dates": {
+        "start": "2013-03-01",
+        "end": "2017-08-24"
+      },
+      "responsibilities": "I worked in a bakery, waking up early to decorate donuts and bake bread, amongst other goods.",
+      "hideonprint": true
+    },
+    {
+      "job": "Songwriter, Guitarist",
+      "employer": {
+        "name": "Front Royal",
+        "city": "Baltimore, MD",
+        "website": "https://www.frontroyalband.com/"
+      },
+      "dates": {
+        "start": "2014-04-01"
+      },
+      "responsibilities": "We've completed two independent tours across 11 states. I design, develop, and maintain our website; built with Eleventy and hosted on Netlify via git.",
+      "hideonprint": true
+    },
+    {
+      "job": "Intern",
+      "employer": {
+        "name": "Terra's Kitchen",
+        "city": "Baltimore, MD",
+        "website": "https://thedailyrecord.com/2019/09/25/baltimore-based-terras-kitchen-files-for-bankruptcy/"
+      },
+      "dates": {
+        "start": "2017-05-30",
+        "end": "2017-09-01"
+      },
+      "responsibilities": "I was responsible for cataloging our inventory of content and creative works to help the team quickly find assets.",
+      "hideonprint": true
+    },
+    {
+      "job": "Marketing Production Coordinator",
+      "employer": {
+        "name": "Terra's Kitchen",
+        "city": "Baltimore, MD",
+        "website": "https://thedailyrecord.com/2019/09/25/baltimore-based-terras-kitchen-files-for-bankruptcy/"
+      },
+      "dates": {
+        "start": "2017-09-02",
+        "end": "2019-08-28"
+      },
+      "responsibilities": "I managed the email channel, driving conversions and engagement. I designed and built mobile-responsive email templates, automated workflows, managed lists, and improved our HubSpot deliverability score from a 1 to a 67 (avg. score = 50), greatly improving channel effectiveness. I headed SEO, including maintaining our keyword database and Moz Pro reporting."
+    },
+    {
+      "job": "Senior Technical and Compliance Specialist",
+      "employer": {
+        "name": "NewMarket Group",
+        "city": "Baltimore, MD",
+        "website": "https://www.newmarkethealth.com/"
+      },
+      "dates": {
+        "start": "2019-10-14"
+      },
+      "responsibilities": "I conduct technical reviews for web-based products and promotions, ensuring best practices in performance and accessibility. I monitor the health of our domains, acting on any blacklisting reports and working with the marketing team to address compliance issues on the part of our affiliates. I stay up to date on the latest developments in the industry, helping my teams stay informed on upcoming changes or optimization opportunities."
+    },
+    {
+      "job": "Web Developer/Designer",
+      "employer": {
+        "name": "Goucher College",
+        "city": "Baltimore, MD",
+        "website": "https://www.goucher.edu/"
+      },
+      "dates": {
+        "start": "2021-06-07"
+      },
+      "responsibilities": "I manage a WordPress multisite network for the arts department, designing and developing sites, PHP templates, and child themes to meet the needs of the department. Students and staff contribute to the site, so I keep structured documentation in order for everyone to be able to complete their work as needed."
+    }
+  ],
+  "education": [
+    {
+      "school": {
+        "name": "Towson University",
+        "city": "Towson, MD",
+        "website": "https://www.towson.edu"
+      },
+      "degree": "B.S., Business Administration",
+      "dates": {
+        "start": "2013-08-24",
+        "end": "2017-08-07"
+      }
+    }
+  ],
+  "skills": [
+    "HTML, CSS, JavaScript",
+    "Vue",
+    "React",
+    "Data Visualization",
+    "Git",
+    "WordPress",
+    "End-to-End Testing"
+  ],
+  "certifications": [
+    {
+      "issuer": "Moz",
+      "types": [
+        "SEO Fundamentals"
+      ]
+    },
+    {
+      "issuer": "HubSpot",
+      "types": [
+        "Inbound, Email, & Content Marketing"
+      ]
+    },
+    {
+      "issuer": "Google",
+      "types": [
+        "Advanced Google Analytics",
+        "Google Tag Manager Fundamentals"
+      ]
+    },
+    {
+      "issuer": "freeCodeCamp.org",
+      "types": [
+        "Responsive Web Design",
+        "JavaScript Algorithms and Data Structures",
+        "Front End Frameworks",
+        "Data Visualization",
+        "APIs and Microservices"
+      ]
+    }
+  ],
+  "interests": {
+    "blurb": "When I'm not writing code, I'm either writing music or learning about literally anything new.",
+    "links": [
+      {
+        "name": "Front Royal",
+        "url": "https://www.frontroyalband.com/",
+        "desc": "A punk band with a splash of indie."
+      },
+      {
+        "name": "troy",
+        "url": "https://justtroy.bandcamp.com/",
+        "desc": "My solo project where I do whatever I want."
+      }
+    ],
+    "items": [
+      "Reading",
+      "Cooking",
+      "Baking"
+    ]
+  }
+}

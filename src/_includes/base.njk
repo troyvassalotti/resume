@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Troy Vassalotti | {{ title }}</title>
+    <meta name="description" content="{{ description }}">
+
+    <style>
+        {% include 'style.css' %}
+    </style>
+
+    <link rel="canonical" href="{{ website }}">
+    <meta name="description" content="{{ description }}">
+    <meta name="og:locale" content="en_US">
+    <meta name="og:type" content="article">
+    <meta name="og:title" content="{{ title }}">
+    <meta name="og:description" content="{{ description }}">
+    <meta name="og:site_name" content="{{ domain }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:creator" content="{{ meta.twitter }}">
+
+    <!-- Web Monetization -->
+    <meta name="monetization" content="$ilp.uphold.com/XqbEkDnhpZ29">
+    <link rel="monetization" href="https://ilp.uphold.com/XqbEkDnhpZ29">
+
+    <!-- Icons and PWA stuff -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+</head>
+<body>
+{{ content | safe }}
+
+<script type="module">
+    {% include 'script.js' %}
+</script>
+</body>
+</html>
