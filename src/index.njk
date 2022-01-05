@@ -76,7 +76,7 @@
                                         - {% if job.dates.end %}
                                             <time
                                             datetime="{{ job.dates.end }}">{{ job.dates.end | mmyyyy }}</time>{% else %}
-                                            <span>Present</span>{% endif %}
+                                            <span>Present {% if job.partTime %} <span class="job-status">(Part Time)</span>{% endif %}</span>{% endif %}
                                     </p>
                                     <p class="organization p-org h-card">
                                         <a href="{{ job.employer.website }}" class="p-name u-url"

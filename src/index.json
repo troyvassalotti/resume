@@ -100,6 +100,7 @@
       "dates": {
         "start": "2021-06-07"
       },
+      "partTime": true,
       "responsibilities": "I manage a WordPress multisite network for the arts department, designing and developing sites, PHP templates, and child themes to meet the needs of the department. Students and staff contribute to the site, so I keep structured documentation in order for everyone to be able to complete their work as needed."
     }
   ],
