@@ -6,7 +6,7 @@
     skip_processing = true
 
 [build.environment]
-    NODE_VERSION = "14"
+    NODE_VERSION = "16"
 
 [[redirects]]
     from = "https://nifty-dubinsky-1f8fdd.netlify.app/*"

@@ -5,7 +5,7 @@
         <div class="container">
             <div class="meta h-card">
                 <img src="/img/{{ meta.picture }}" alt="Troy standing in front of a brick wall, posing for a photo."
-                     class="photo u-photo hideOnPrint" width="300" height="300" loading="eager">
+                     class="photo u-photo hideOnPrint" width="300" height="300" loading="eager" decoding="async">
                 <div class="wrapper">
                     <div class="name">
                         <h1 class="p-name">{{ meta.name }}</h1>
@@ -49,7 +49,7 @@
                             {% endfor %}
                         </div>
                         <div class="print-this hideOnPrint">
-                            <button type="button" id="print-this">
+                            <button type="button" id="print-this" onclick="window.print()">
                                 <svg title="print" role="img" aria-hidden="true" width="24" height="24">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-print"></use>
                                 </svg>
@@ -144,7 +144,7 @@
             </div>
             <section class="interests">
                 <h2>Interests</h2>
-                <p>{{ interests.blurb }}</p>
+                {# <p>{{ interests.blurb }}</p> #}
                 <ul>
                     {% for link in interests.links %}
                         <li><a href="{{ link.url }}" class="bold"

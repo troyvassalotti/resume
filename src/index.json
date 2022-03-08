@@ -8,7 +8,7 @@
     "name": "Troy Vassalotti",
     "twitter": "@validcharacters",
     "pronouns": "he/him",
-    "picture": "professional.jpg",
+    "picture": "cover.jpg",
     "title": "Web Developer",
     "location": "Maryland, US",
     "contact": {
@@ -170,6 +170,11 @@
         "name": "troy",
         "url": "https://justtroy.bandcamp.com/",
         "desc": "My solo project where I do whatever I want."
+      },
+      {
+        "name": "charmCityJS",
+        "url": "https://charmcityjs.org",
+        "desc": "I'm a community organizer for charmCityJS, a Baltimore JavaScript meetup."
       }
     ],
     "items": [
