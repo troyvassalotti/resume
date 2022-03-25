@@ -86,7 +86,8 @@
         "website": "https://www.newmarkethealth.com/"
       },
       "dates": {
-        "start": "2019-10-14"
+        "start": "2019-10-14",
+        "end": "2022-03-25"
       },
       "responsibilities": "I conduct technical reviews for web-based products and promotions, ensuring best practices in performance and accessibility. I monitor the health of our domains, acting on any blacklisting reports and working with the marketing team to address compliance issues on the part of our affiliates. I stay up to date on the latest developments in the industry, helping my teams stay informed on upcoming changes or optimization opportunities."
     },
@@ -102,6 +103,18 @@
       },
       "partTime": true,
       "responsibilities": "I manage a WordPress multisite network for the arts department, designing and developing sites, PHP templates, and child themes to meet the needs of the department. Students and staff contribute to the site, so I keep structured documentation in order for everyone to be able to complete their work as needed."
+    },
+    {
+      "job": "Associate Software Engineer",
+      "employer": {
+        "name": "T. Rowe Price",
+        "city": "Baltimore, MD",
+        "website": "https://www.troweprice.com/"
+      },
+      "dates": {
+        "start": "2022-03-28"
+      },
+      "responsibilities": "Coming soon..."
     }
   ],
   "education": [
