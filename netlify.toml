@@ -1,22 +1,23 @@
 [build]
-    command = "npm run build"
-    publish = "dist"
+command = "npm run build"
+publish = "dist"
 
 [build.processing]
-    skip_processing = true
+skip_processing = true
 
 [build.environment]
-    NODE_VERSION = "16"
+NODE_VERSION = "node"
 
 [[redirects]]
-    from = "https://nifty-dubinsky-1f8fdd.netlify.app/*"
-    to = "https://resume.troyv.dev/:splat"
-    status = 301
-    force = true
+from = "https://nifty-dubinsky-1f8fdd.netlify.app/*"
+to = "https://resume.troyv.dev/:splat"
+status = 301
+force = true
 
 [[headers]]
-    for = "/*"
-    [headers.values]
-        X-Content-Type-Options = "nosniff"
-        X-Frame-Options = "SAMEORIGIN"
-        X-XSS-Protection = "1"
+for = "/*"
+[headers.values]
+X-Content-Type-Options = "nosniff"
+X-Frame-Options = "SAMEORIGIN"
+X-XSS-Protection = "1"
+

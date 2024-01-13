@@ -1,18 +1,14 @@
 {
-  "name": "cover-letters",
-  "version": "1.0.0",
-  "description": "",
+  "name": "resume",
+  "version": "2.0.0",
+  "description": "My resume.",
   "main": "index.js",
   "scripts": {
-    "build": "ELEVENTY_ENV=production eleventy",
-    "preview": "ELEVENTY_ENV=development eleventy --serve",
-    "serve": "ELEVENTY_ENV=production eleventy --serve"
+    "build": "npx eleventy",
+    "serve": "npx eleventy --serve"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "html-minifier-terser": "^7.0.0-alpha.1"
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
   }
 }
