@@ -6,14 +6,14 @@
   "description": "An online version of my résumé. Easily printable!.",
   "meta": {
     "name": "Troy Vassalotti",
-    "twitter": "@validcharacters",
+    "mastodon": "@rest@fosstodon.org",
     "pronouns": "he/him",
     "picture": "cover.jpg",
     "title": "Web Developer",
     "location": "Maryland, US",
     "contact": {
       "email": "troy@troyv.dev",
-      "website": "https://www.troyv.dev"
+      "website": "https://www.troyv.dev/"
     },
     "socials": {
       "hideonprint": true,
@@ -89,7 +89,7 @@
         "start": "2019-10-14",
         "end": "2022-03-25"
       },
-      "responsibilities": "I conduct technical reviews for web-based products and promotions, ensuring best practices in performance and accessibility. I monitor the health of our domains, acting on any blacklisting reports and working with the marketing team to address compliance issues on the part of our affiliates. I stay up to date on the latest developments in the industry, helping my teams stay informed on upcoming changes or optimization opportunities."
+      "responsibilities": "I conducted technical reviews for web-based products and promotions, ensuring best practices in performance and accessibility. I monitored the health of our domains, acting on any blacklisting reports and working with the marketing team to address compliance issues on the part of our affiliates. I stayed up to date on the latest developments in the industry, helping my teams stay informed on upcoming changes or optimization opportunities."
     },
     {
       "job": "Web Developer/Designer",
@@ -99,10 +99,11 @@
         "website": "https://www.goucher.edu/"
       },
       "dates": {
-        "start": "2021-06-07"
+        "start": "2021-06-07",
+        "end": "2023-12-21"
       },
       "partTime": true,
-      "responsibilities": "I manage a WordPress multisite network for the arts department, designing and developing sites, PHP templates, and child themes to meet the needs of the department. Students and staff contribute to the site, so I keep structured documentation in order for everyone to be able to complete their work as needed."
+      "responsibilities": "I managed a WordPress multisite network for the arts department, designing and developing sites, PHP templates, and child themes to meet the needs of the department. Students and staff contribute to the site, so I kept structured documentation in order for everyone to be able to complete their work as needed."
     },
     {
       "job": "Associate Software Engineer",
@@ -112,9 +113,22 @@
         "website": "https://www.troweprice.com/"
       },
       "dates": {
-        "start": "2022-03-28"
+        "start": "2022-03-28",
+        "end": "2024-01-01"
       },
-      "responsibilities": "Coming soon..."
+      "responsibilities": "I developed web components for the Beacon Design System, working closely with the design team to implement components according to the design specifications. I assisted teams consuming the web components in their application at all stages of the adoption process. Notable projects include creating the architecture for components such as Tables, Data Visualization, architecting the Beacon CSS utility framework, refactoring our Style Dictionary build to support modern and cross platform design tokens, and devising a deprecation strategy for component properties and style tokens when structural changes impact those initial implementations."
+    },
+    {
+      "job": "Software Engineer, Tech Lead",
+      "employer": {
+        "name": "T. Rowe Price",
+        "city": "Baltimore, MD",
+        "website": "https://www.troweprice.com/"
+      },
+      "dates": {
+        "start": "2024-01-01"
+      },
+      "responsibilities": "I serve as the Tech Lead for the Beacon Web Team. I continue to develop components for the Beacon Design System while also helping to shape the future of the system through assisting with the project roadmap and guiding the team along in defining a strong set of patterns that help make our components the best they can be for our users."
     }
   ],
   "education": [
@@ -138,27 +152,22 @@
     "Data Visualization",
     "Git",
     "WordPress",
-    "End-to-End Testing"
+    "PHP",
+    "End-to-End Testing, QA",
+    "CI/CD"
   ],
   "certifications": [
     {
       "issuer": "Moz",
-      "types": [
-        "SEO Fundamentals"
-      ]
+      "types": ["SEO Fundamentals"]
     },
     {
       "issuer": "HubSpot",
-      "types": [
-        "Inbound, Email, & Content Marketing"
-      ]
+      "types": ["Inbound, Email, & Content Marketing"]
     },
     {
       "issuer": "Google",
-      "types": [
-        "Advanced Google Analytics",
-        "Google Tag Manager Fundamentals"
-      ]
+      "types": ["Advanced Google Analytics", "Google Tag Manager Fundamentals"]
     },
     {
       "issuer": "freeCodeCamp.org",
@@ -190,10 +199,6 @@
         "desc": "I'm a community organizer for charmCityJS, a Baltimore JavaScript meetup."
       }
     ],
-    "items": [
-      "Reading",
-      "Cooking",
-      "Baking"
-    ]
+    "items": ["Reading", "Cooking", "Baking"]
   }
 }
