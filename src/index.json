@@ -1,5 +1,4 @@
 {
-  "layout": "base",
   "domain": "resume.troyv.dev",
   "website": "https://resume.troyv.dev/",
   "title": "Résumé",
@@ -7,7 +6,7 @@
   "meta": {
     "name": "Troy Vassalotti",
     "mastodon": "@rest@fosstodon.org",
-    "pronouns": "he/him",
+    "pronouns": "he/him/his",
     "picture": "cover.jpg",
     "title": "Web Developer",
     "location": "Maryland, US",
@@ -189,8 +188,8 @@
         "desc": "A punk band with a splash of indie."
       },
       {
-        "name": "troy",
-        "url": "https://justtroy.bandcamp.com/",
+        "name": "troyalllowercase",
+        "url": "https://troyalllowercase.bandcamp.com/",
         "desc": "My solo project where I do whatever I want."
       },
       {
