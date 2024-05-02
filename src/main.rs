@@ -3,9 +3,8 @@ use std::path::PathBuf;
 use std::result::Result;
 
 use argh::FromArgs;
-use minijinja::{syntax::SyntaxConfig, Environment};
+use minijinja::{syntax::SyntaxConfig, AutoEscape, Environment};
 
-use chrono::format::ParseError;
 use chrono::{Datelike, NaiveDate};
 
 /// A small application that renders a MiniJina template.
@@ -20,12 +19,11 @@ struct Cli {
     template: PathBuf,
 }
 
-fn mmyyyy(value: &str) -> Result<String, ParseError> {
-    let date = NaiveDate::parse_from_str(value, "%Y-%m-%d")?;
-    let year = date.year();
-    let month = date.month();
-
-    Ok(year.to_string())
+fn pretty_date(date: &str) -> String {
+    let val = NaiveDate::parse_from_str(date, "%Y-%m-%d").unwrap();
+    let year = val.year();
+    let month = val.month();
+    format!("{month:02}/{year}")
 }
 
 // todo: glob add_templates for anything in includes
@@ -33,11 +31,14 @@ fn execute() -> Result<(), Box<dyn std::error::Error>> {
     let cli: Cli = argh::from_env();
 
     let mut env = Environment::new();
+    env.set_auto_escape_callback(|_name| AutoEscape::None);
     env.add_template("style.css", include_str!("_includes/style.css"))
         .unwrap();
     env.add_template("sprites.html", include_str!("_includes/sprites.html"))
         .unwrap();
-    env.add_filter("mmyyyy", mmyyyy);
+    env.add_template("macros.html", include_str!("_includes/macros.html"))
+        .unwrap();
+    env.add_filter("pretty_date", pretty_date);
     env.set_syntax(
         SyntaxConfig::builder()
             .line_statement_prefix("#")

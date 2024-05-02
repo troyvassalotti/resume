@@ -21,7 +21,7 @@
     <meta name="twitter:description" content="{{ description }}" />
   </head>
   <body>
-    {% include "sprites.html" %}
+    {% include "sprites.html" %} {% from "macros.html" import social_link %}
 
     <div class="h-resume resume-container" role="document">
       <header class="header">
@@ -99,23 +99,8 @@
                 <div
                   class="contact__social {% if meta.socials.hideonprint %} hideOnPrint {% endif %}"
                 >
-                  {# {% for (site, url) in meta.socials.accounts %}
-                  <a href="{{ url }}">
-                    <svg
-                      title="{{ site }}"
-                      role="img"
-                      aria-hidden="true"
-                      width="24"
-                      height="24"
-                    >
-                      <use
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="#icon-{{ site }}"
-                      ></use>
-                    </svg>
-                    <span>{{ site | capitalize }}</span>
-                  </a>
-                  {% endfor %} #}
+                  {{ social_link("github", meta.socials.accounts.github) }} {{
+                  social_link("linkedin", meta.socials.accounts.linkedin) }}
                 </div>
                 <div class="print-this hideOnPrint">
                   <button
@@ -157,11 +142,11 @@
                     <h3 class="p-name">{{ job.job }}</h3>
                     <p class="dates">
                       <time datetime="{{ job.dates.start }}"
-                        >{{ job.dates.start | mmyyyy }}</time
+                        >{{ job.dates.start | pretty_date }}</time
                       >
                       - {% if job.dates.end %}
                       <time datetime="{{ job.dates.end }}"
-                        >{{ job.dates.end | mmyyyy }}</time
+                        >{{ job.dates.end | pretty_date }}</time
                       >{% else %}
                       <span
                         >Present {% if job.partTime %}
@@ -199,11 +184,11 @@
                       <h3 class="p-name">{{ item.degree }}</h3>
                       <p class="dates">
                         <time datetime="{{ item.dates.start }}"
-                          >{{ item.dates.start | mmyyyy }}</time
+                          >{{ item.dates.start | pretty_date }}</time
                         >
                         - {% if item.dates.end %}
                         <time datetime="{{ item.dates.end }}"
-                          >{{ item.dates.end | mmyyyy }}</time
+                          >{{ item.dates.end | pretty_date }}</time
                         >{% else %} <span>Present</span>{% endif %}
                       </p>
                       <p class="organization h-card p-org">
