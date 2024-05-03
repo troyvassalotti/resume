@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Native";
-  src: url("/fonts/native/Native-Light.woff2") format("woff2");
+  src: url("/static/fonts/native/Native-Light.woff2") format("woff2");
   font-display: fallback;
   font-style: normal;
   font-weight: 300;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "Native";
-  src: url("/fonts/native/Native-Regular.woff2") format("woff2");
+  src: url("/static/fonts/native/Native-Regular.woff2") format("woff2");
   font-display: fallback;
   font-style: normal;
   font-weight: 400;
@@ -221,12 +221,6 @@
 
     & .entrylist::before {
       background: #818a91;
-      background: linear-gradient(
-        to top,
-        rgba(129, 138, 145, 0) 0,
-        #818a91 100px,
-        #818a91 100%
-      );
       content: "";
       display: block;
       inline-size: 1px;
