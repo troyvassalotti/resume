@@ -1,12 +1,9 @@
 [build]
-command = "cargo build"
+command = "cargo run -- -c src/index.json -t src/index.html"
 publish = "dist"
 
 [build.processing]
 skip_processing = true
-
-[build.environment]
-NODE_VERSION = "node"
 
 [[redirects]]
 from = "https://nifty-dubinsky-1f8fdd.netlify.app/*"
@@ -20,4 +17,3 @@ for = "/*"
 X-Content-Type-Options = "nosniff"
 X-Frame-Options = "SAMEORIGIN"
 X-XSS-Protection = "1"
-

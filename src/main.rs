@@ -1,6 +1,7 @@
 use argh::FromArgs;
 use chrono::{Datelike, NaiveDate};
 use fs_extra::{copy_items, dir};
+use minify_html::{minify, Cfg};
 use minijinja::{path_loader, syntax::SyntaxConfig, AutoEscape, Environment};
 use std::fs::{self, File};
 use std::io::Write;
@@ -53,12 +54,25 @@ fn build() -> Result<(), Box<dyn std::error::Error>> {
 
     let ctx: serde_json::Value = serde_json::from_slice(&fs::read(&cli.context)?)?;
     let tmpl = env.get_template(name).unwrap();
+    let contents = tmpl.render(ctx)?;
+
+    let mut cfg = Cfg::new();
+    cfg.keep_comments = true;
+    cfg.keep_closing_tags = true;
+    cfg.do_not_minify_doctype = true;
+    cfg.minify_css = true;
+    cfg.keep_spaces_between_attributes = true;
+    cfg.keep_html_and_head_opening_tags = true;
+    cfg.ensure_spec_compliant_unquoted_attribute_values = true;
+    let minified = minify(contents.as_bytes(), &cfg);
 
     fs::create_dir_all("dist")?;
     let mut file = File::create("dist/index.html")?;
-    file.write_all(tmpl.render(ctx)?.as_bytes())?;
+    // file.write_all(contents.as_bytes())?;
+    file.write_all(&minified)?;
 
-    let options = dir::CopyOptions::new();
+    let mut options = dir::CopyOptions::new();
+    options.overwrite = true;
     let from_paths = vec!["public/static", "public/favicon.ico"];
     copy_items(&from_paths, "dist", &options)?;
 

@@ -2,6 +2,7 @@
 name = "resume"
 version = "1.0.0"
 edition = "2021"
+default-run = "resume"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -11,5 +12,6 @@ actix-web = "4.5.1"
 argh = "0.1.12"
 chrono = "0.4.38"
 fs_extra = "1.3.0"
+minify-html = "0.15.0"
 minijinja = { version = "2.0.1", features = ["custom_syntax", "loader"] }
 serde_json = "1.0.116"
