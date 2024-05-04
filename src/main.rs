@@ -15,7 +15,7 @@ struct Cli {
     #[argh(option, short = 'c', long = "context")]
     context: PathBuf,
 
-    /// the path to a template file that should be rendered
+    /// the path to a template file that pshould be rendered
     #[argh(option, short = 't', long = "template")]
     template: PathBuf,
 }
@@ -68,7 +68,6 @@ fn build() -> Result<(), Box<dyn std::error::Error>> {
 
     fs::create_dir_all("dist")?;
     let mut file = File::create("dist/index.html")?;
-    // file.write_all(contents.as_bytes())?;
     file.write_all(&minified)?;
 
     let mut options = dir::CopyOptions::new();
