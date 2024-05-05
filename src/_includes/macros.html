@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 {% macro social_link(name, url) %}
 <a href="{{ url }}">
   <svg title="{{ name }}" role="img" aria-hidden="true" width="24" height="24">
@@ -8,4 +9,9 @@
   </svg>
   <span>{{ name | capitalize }}</span>
 </a>
+{% endmacro %}
+
+<!-- prettier-ignore -->
+{% macro interpunct() %}
+<span aria-hidden="true">·</span>
 {% endmacro %}

@@ -54,8 +54,8 @@
 
   img,
   picture {
-    max-inline-size: 100%;
     display: block;
+    max-inline-size: 100%;
   }
 
   ul[role="list"],
@@ -72,19 +72,49 @@
 
 @layer base {
   html {
-    --fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-      "Helvetica Neue", sans-serif;
     --monospace: "Native", monospace;
+    --headlines: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+    --body: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+      sans-serif;
     --color-dark: hsl(0, 0%, 5%);
-    --color-mid: hsl(0, 0%, 25%);
     --color-light: hsl(0, 0%, 35%);
     --primary-color: hsl(349, 100%, 50%);
+
+    /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    --step--2: clamp(0.7813rem, 0.7747rem + 0.0326cqi, 0.8rem);
+    --step--1: clamp(0.9375rem, 0.9158rem + 0.1087cqi, 1rem);
+    --step-0: clamp(1.125rem, 1.0815rem + 0.2174cqi, 1.25rem);
+    --step-1: clamp(1.35rem, 1.2761rem + 0.3696cqi, 1.5625rem);
+    --step-2: clamp(1.62rem, 1.5041rem + 0.5793cqi, 1.9531rem);
+    --step-3: clamp(1.944rem, 1.771rem + 0.8651cqi, 2.4414rem);
+    --step-4: clamp(2.3328rem, 2.0827rem + 1.2504cqi, 3.0518rem);
+    --step-5: clamp(2.7994rem, 2.4462rem + 1.7658cqi, 3.8147rem);
+
+    /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,&g=s,l,xl,12 */
+    --space-3xs: clamp(0.3125rem, 0.3125rem + 0cqi, 0.3125rem);
+    --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087cqi, 0.625rem);
+    --space-xs: clamp(0.875rem, 0.8533rem + 0.1087cqi, 0.9375rem);
+    --space-s: clamp(1.125rem, 1.0815rem + 0.2174cqi, 1.25rem);
+    --space-m: clamp(1.6875rem, 1.6223rem + 0.3261cqi, 1.875rem);
+    --space-l: clamp(2.25rem, 2.163rem + 0.4348cqi, 2.5rem);
+    --space-xl: clamp(3.375rem, 3.2446rem + 0.6522cqi, 3.75rem);
+    --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696cqi, 5rem);
+    --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043cqi, 7.5rem);
+
+    /* One-up pairs */
+    --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435cqi, 0.625rem);
+    --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522cqi, 0.9375rem);
+    --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522cqi, 1.25rem);
+    --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043cqi, 1.875rem);
+    --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413cqi, 2.5rem);
+    --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087cqi, 3.75rem);
+    --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261cqi, 5rem);
+    --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174cqi, 7.5rem);
   }
 
   body {
-    color: var(--color-mid);
-    font-family: var(--fallback);
+    color: var(--color-dark);
+    font-family: var(--body);
   }
 
   h1,
@@ -92,27 +122,15 @@
   h3,
   h4 {
     color: var(--color-dark);
-    font-weight: 500;
+    font-family: var(--headlines);
   }
 
   .resume-container {
-    h1 {
-      font-size: 3rem;
-    }
-
-    h2 {
-      font-size: 2.25rem;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-    }
-
     .section-header {
-      border-block-end: 1px solid black;
+      border-block-end: 1px solid var(--color-dark);
     }
 
-    :is(a, .print-this button) {
+    :is(a, .print-this) {
       --lightness: 40%;
       --link-color: hsl(222, 100%, var(--lightness));
       --transition: 0.2s ease;
@@ -130,25 +148,7 @@
       }
     }
 
-    :is(.contact__links, .contact__info, .contact__social) {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      gap: 1ch;
-      justify-content: start;
-
-      :is(a, .print-this button) {
-        align-items: center;
-        display: flex;
-        inline-size: max-content;
-      }
-
-      :is(a svg, .print-this button svg) {
-        margin-inline-end: 0.5ch;
-      }
-    }
-
-    .print-this button {
+    .print-this {
       background-color: transparent;
       border: none;
       cursor: pointer;
@@ -156,69 +156,32 @@
       text-decoration: underline;
     }
 
-    .contact__links {
-      margin-block: 1rem;
-    }
+    .u-photo {
+      --size: 11rem;
 
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .header {
-      padding-block: 2rem;
-    }
-
-    .name {
-      align-items: baseline;
-      display: flex;
-      flex-wrap: wrap;
-
-      h1 {
-        margin-inline-end: 0.5ex;
-      }
-    }
-
-    .photo {
       aspect-ratio: 1;
       border-radius: 50%;
       box-shadow: 8px 8px 40px -10px rgba(0, 0, 0, 0.3);
-      max-inline-size: 11rem;
-      max-block-size: 11rem;
-    }
-
-    .pronouns {
-      color: var(--color-light);
-      font-style: italic;
-    }
-
-    .my-title {
-      font-size: 1.25rem;
-      font-weight: 300;
-      margin-block-start: 1ex;
-      margin-block-end: 0;
+      max-block-size: var(--size);
+      max-inline-size: var(--size);
     }
 
     .container {
-      padding-inline: 5%;
+      padding-block: var(--space-s);
+      padding-inline: var(--space-m);
     }
 
     .entrylist {
-      padding-inline-start: 1rem;
+      padding-inline-start: var(--space-xs);
       position: relative;
-
-      > * + * {
-        margin-block-start: 2rem;
-      }
 
       &::before {
         background: #818a91;
         content: "";
         display: block;
         inline-size: 1px;
-        inset-block-start: 2.25rem;
         inset-block-end: 0;
+        inset-block-start: 2.25rem;
         inset-inline-start: 1rem;
         position: absolute;
       }
@@ -239,173 +202,27 @@
           position: absolute;
           transform: translate(-50%, 0);
         }
-
-        .entrylist__header {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .entry__content {
-          max-inline-size: 70ch;
-        }
       }
-    }
-
-    .dates {
-      color: var(--color-light);
-      font-family: var(--monospace);
-      order: -1;
-    }
-
-    .organization {
-      font-style: italic;
-      font-weight: 300;
     }
 
     ul:not([class]) li::marker {
       color: var(--primary-color);
     }
 
-    .skills-certs .certifications li {
-      max-inline-size: 60ch;
-    }
-
-    @media (min-width: 668px) {
-      :is(.contact__info, .contact__social) {
-        flex-direction: row;
-      }
-    }
-
-    @media print, (min-width: 668px) {
-      .skills-certs {
-        display: grid;
-        gap: 4rem;
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
     @media (min-width: 950px) {
       & {
         display: grid;
-        grid-template-areas: "sidebar main";
         grid-template-columns: 30% 70%;
         position: relative;
       }
 
-      .main {
-        grid-area: main;
-        padding-block: 2rem;
-      }
-
       .header {
-        background-color: rgba(148, 209, 255, 0.2);
         block-size: 100%;
-        grid-area: sidebar;
 
-        .meta {
+        .h-card {
           inset-block-start: 2rem;
           position: sticky;
         }
-      }
-    }
-
-    @media print {
-      @page {
-        size: letter;
-      }
-
-      & {
-        font-size: 10pt;
-      }
-
-      .header {
-        padding-block-start: 0;
-        padding-block-end: 1rem;
-      }
-
-      h1 {
-        font-size: 15pt;
-      }
-
-      h2 {
-        font-size: 12pt;
-      }
-
-      h3 {
-        font-size: 11pt;
-      }
-
-      :is(a, .print-this button) {
-        text-decoration: none;
-      }
-
-      .meta {
-        justify-content: center;
-      }
-
-      .my-title {
-        font-size: 10pt;
-      }
-
-      .contact__links {
-        margin-block-end: 0;
-        margin-block-start: 0.5rem;
-      }
-
-      :is(.contact__info, .contact__social) {
-        flex-direction: row;
-        font-size: 7pt;
-
-        svg {
-          max-inline-size: 16px;
-        }
-      }
-
-      .entrylist {
-        padding-inline-start: 0.5rem;
-
-        > * + * {
-          margin-block-start: 1rem;
-        }
-
-        li .entry__content {
-          max-inline-size: 100%;
-        }
-      }
-
-      .additional-info {
-        display: flex;
-        gap: 1.5rem;
-
-        h3 {
-          font-size: 9pt;
-        }
-
-        .dates {
-          inline-size: max-content;
-        }
-      }
-
-      .education ol {
-        padding: 0;
-      }
-
-      .skills-certs {
-        gap: 1.5rem;
-        grid-template-columns: 1fr 2fr;
-
-        li {
-          font-size: 8pt;
-        }
-      }
-
-      .photo {
-        max-inline-size: 6rem;
-        max-block-size: 6rem;
-      }
-
-      .interests ul {
-        margin-block-end: 0;
       }
     }
   }
@@ -421,6 +238,14 @@
 @layer utilities {
   .bold {
     font-weight: bold;
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  .color-light {
+    color: var(--color-light);
   }
 
   .showOnPrint {

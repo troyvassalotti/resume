@@ -21,42 +21,50 @@
     <meta name="twitter:description" content="{{ description }}" />
   </head>
   <body class="h-resume resume-container">
-    {% include "sprites.html" %} {% from "macros.html" import social_link %}
+    <!-- prettier-ignore -->
+    {% from "macros.html" import social_link, interpunct %}
+
+    <!-- prettier-ignore -->
+    {% include "sprites.html" %}
 
     <header class="header container">
-      <div class="meta h-card">
+      <div class="h-card">
         <img
           src="/static/img/{{ meta.picture }}"
           alt="Me in the park, posing for a photo."
-          class="photo u-photo hideOnPrint"
+          class="u-photo hideOnPrint"
           width="300"
           height="300"
           loading="eager"
           decoding="async"
         />
-        <div class="wrapper">
+        <div class="header__meta-content">
           <div class="name">
             <h1 class="p-name">{{ meta.name }}</h1>
-            <p class="pronouns">({{ meta.pronouns }})</p>
+            <span class="p-gender-identity color-light italic">
+              ({{ meta.pronouns }})
+            </span>
           </div>
           <p class="my-title">
-            {{ meta.title }} <span aria-hidden="true">·</span> {{ meta.location
-            }}
+            <span class="p-job-title">{{ meta.title }}</span>
+            {{ interpunct() }}
+            <span class="p-locality">{{ meta.location }}</span>
           </p>
-          <div class="p-contact contact__links">
-            <div class="contact__info">
-              <a href="mailto:{{ meta.contact.email }}">
+          <div class="p-contact">
+            <div class="contact-info">
+              <a class="u-email" href="mailto:{{ meta.contact.email }}">
                 <svg aria-hidden="true" width="24" height="24">
                   <use
                     xmlns:xlink="http://www.w3.org/1999/xlink"
                     xlink:href="#icon-email"
                   ></use>
                 </svg>
-                <span class="hideOnPrint">Email Me</span
-                ><span class="showOnPrint">{{ meta.contact.email }}</span>
+                <span class="hideOnPrint">Email Me</span>
+                <span class="showOnPrint">{{ meta.contact.email }}</span>
               </a>
+
               {% if meta.contact.phone %}
-              <a href="tel:{{ meta.contact.phone }}">
+              <a class="p-tel" href="tel:{{ meta.contact.phone }}">
                 <svg aria-hidden="true" width="24" height="24">
                   <use
                     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -66,7 +74,8 @@
                 <span>{{ meta.contact.phone }}</span>
               </a>
               {% endif %}
-              <a href="{{ meta.contact.website }}">
+
+              <a class="u-url" href="{{ meta.contact.website }}">
                 <svg aria-hidden="true" width="24" height="24">
                   <use
                     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -77,126 +86,114 @@
               </a>
             </div>
             <div
-              class="contact__social {% if meta.socials.hideonprint %} hideOnPrint {% endif %}"
+              class="social-media {% if meta.socials.hideonprint %} hideOnPrint {% endif %}"
             >
-              {{ social_link("github", meta.socials.accounts.github) }} {{
-              social_link("linkedin", meta.socials.accounts.linkedin) }}
-            </div>
-            <div class="print-this hideOnPrint">
-              <button type="button" id="print-this" onclick="window.print()">
-                <svg aria-hidden="true" width="24" height="24">
-                  <use
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="#icon-print"
-                  ></use>
-                </svg>
-                Print This
-              </button>
+              <!-- prettier-ignore -->
+              {{ social_link("github", meta.socials.accounts.github) }}
+              {{ social_link("linkedin", meta.socials.accounts.linkedin) }}
             </div>
           </div>
+          <button class="print-this" onclick="window.print()">
+            <svg aria-hidden="true" width="24" height="24">
+              <use
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xlink:href="#icon-print"
+              ></use>
+            </svg>
+            <span>Print This</span>
+          </button>
         </div>
       </div>
     </header>
     <main id="main" class="main container">
-      <section class="experience">
+      <article class="experience">
         <h2 class="section-header">Work Experience</h2>
         <ol class="entrylist" role="list" reversed>
           {% for job in experience | reverse %}
           <li
             class="h-event p-experience {% if job.hideonprint %} hideOnPrint {% endif %}"
           >
-            <div class="entrylist__header">
-              <h3 class="p-name">{{ job.job }}</h3>
-              <p class="dates">
-                <time datetime="{{ job.dates.start }}"
-                  >{{ job.dates.start | pretty_date }}</time
-                >
-                - {% if job.dates.end %}
-                <time datetime="{{ job.dates.end }}"
-                  >{{ job.dates.end | pretty_date }}</time
-                >{% else %}
-                <span
-                  >Present {% if job.partTime %}
-                  <span class="job-status">(Part Time)</span>{% endif %}</span
-                >{% endif %}
-              </p>
-              <p class="organization p-org h-card">
-                <a
-                  href="{{ job.employer.website }}"
-                  class="p-name u-url"
-                  rel="noreferrer nofollow"
-                  >{{ job.employer.name }}</a
-                >
-                <span aria-hidden="true">·</span>
-                <span class="p-location">{{ job.employer.city }}</span>
-              </p>
+            <p class="dates">
+              <!-- prettier-ignore -->
+              <time class="dt-start" datetime="{{ job.dates.start }}">{{ job.dates.start | pretty_date }}</time>
+              -
+              <!-- prettier-ignore -->
+              {% if job.dates.end %}
+              <!-- prettier-ignore -->
+              <time class="dt-end" datetime="{{ job.dates.end }}">{{ job.dates.end | pretty_date }}</time>
+              {% else %}
+              <span>Present</span>
+              {% endif %}
+            </p>
+            <h3 class="p-name">{{ job.job }}</h3>
+            <p class="organization p-org h-card">
+              <a
+                href="{{ job.employer.website }}"
+                class="p-name u-url"
+                rel="noreferrer nofollow"
+                >{{ job.employer.name }}</a
+              >
+              {{ interpunct() }}
+              <span class="p-location">{{ job.employer.city }}</span>
+            </p>
+            <p class="p-summary">{{ job.responsibilities }}</p>
+          </li>
+          {% endfor %}
+        </ol>
+      </article>
+      <article class="education">
+        <h2 class="section-header">Education</h2>
+        <ol class="entrylist" role="list" reversed>
+          {% for item in education %}
+          <li class="h-event p-education">
+            <div class="dates">
+              <!-- prettier-ignore -->
+              <time class="dt-start" datetime="{{ item.dates.start }}">{{ item.dates.start | pretty_date }}</time>
+              -
+              <!-- prettier-ignore -->
+              {% if item.dates.end %}
+              <!-- prettier-ignore -->
+              <time class="dt-end" datetime="{{ item.dates.end }}">{{ item.dates.end | pretty_date }}</time>
+              {% else %}
+              <span>Present</span>
+              {% endif %}
             </div>
-            <div class="entry__content p-summary">
-              <p>{{ job.responsibilities }}</p>
+            <h3 class="p-name">{{ item.degree }}</h3>
+            <div class="organization h-card p-org">
+              <a
+                href="{{ item.school.website }}"
+                class="p-name u-url"
+                rel="noreferrer nofollow"
+                >{{ item.school.name }}</a
+              >
+              {{ interpunct() }}
+              <span class="p-location">{{ item.school.city }}</span>
             </div>
           </li>
           {% endfor %}
         </ol>
-      </section>
-      <div class="additional-info">
-        <section class="education">
-          <h2 class="section-header">Education</h2>
-          <ol class="entrylist" role="list" reversed>
-            {% for item in education %}
-            <li class="h-event p-education">
-              <div class="entrylist__header">
-                <h3 class="p-name">{{ item.degree }}</h3>
-                <p class="dates">
-                  <time datetime="{{ item.dates.start }}"
-                    >{{ item.dates.start | pretty_date }}</time
-                  >
-                  - {% if item.dates.end %}
-                  <time datetime="{{ item.dates.end }}"
-                    >{{ item.dates.end | pretty_date }}</time
-                  >{% else %} <span>Present</span>{% endif %}
-                </p>
-                <p class="organization h-card p-org">
-                  <a
-                    href="{{ item.school.website }}"
-                    class="p-name u-url"
-                    rel="noreferrer nofollow"
-                    >{{ item.school.name }}</a
-                  >
-                  <span aria-hidden="true">·</span>
-                  <span class="p-location">{{ item.school.city }}</span>
-                </p>
-              </div>
-            </li>
-            {% endfor %}
-          </ol>
-        </section>
-        <div class="skills-certs">
-          <section class="skills">
-            <h2 class="section-header">Skills</h2>
-            <ul>
-              {% for skill in skills %}
-              <li class="p-skill">{{ skill }}</li>
-              {% endfor %}
-            </ul>
-          </section>
-          <section class="certifications">
-            <h2 class="section-header">Certifications</h2>
-            <ul>
-              {% for cert in certifications %}
-              <li class="p-skill">
-                <strong>{{ cert.issuer }}</strong>: {% for type in cert.types
-                %}{{ type }}{% if not loop.last %}, {% endif %}{% endfor %}
-              </li>
-              {% endfor %}
-            </ul>
-          </section>
-        </div>
-      </div>
-      <section class="interests">
+      </article>
+      <article class="skills">
+        <h2 class="section-header">Skills</h2>
+        <ul>
+          {% for skill in skills %}
+          <li class="p-skill">{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+      <article class="certifications">
+        <h2 class="section-header">Certifications</h2>
+        <ul>
+          {% for cert in certifications %}
+          <li class="p-skill">
+            <strong>{{ cert.issuer }}</strong>: {% for type in cert.types %}{{
+            type }}{% if not loop.last %}, {% endif %}{% endfor %}
+          </li>
+          {% endfor %}
+        </ul>
+      </article>
+      <article class="interests">
         <h2 class="section-header">Interests</h2>
-        {#
-        <p>{{ interests.blurb }}</p>
-        #}
         <ul>
           {% for link in interests.links %}
           <li>
@@ -206,7 +203,7 @@
           </li>
           {% endfor %}
         </ul>
-      </section>
+      </article>
     </main>
   </body>
 </html>
