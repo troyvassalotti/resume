@@ -38,7 +38,7 @@
           loading="eager"
           decoding="async"
         />
-        <div class="header__meta-content">
+        <div class="header__meta-content flow">
           <div class="name">
             <h1 class="p-name">{{ meta.name }}</h1>
             <span class="p-gender-identity color-light italic">
@@ -50,130 +50,139 @@
             {{ interpunct() }}
             <span class="p-locality">{{ meta.location }}</span>
           </p>
-          <div class="p-contact">
-            <div class="contact-info">
-              <a class="u-email" href="mailto:{{ meta.contact.email }}">
-                <svg aria-hidden="true" width="24" height="24">
-                  <use
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="#icon-email"
-                  ></use>
-                </svg>
-                <span class="hideOnPrint">Email Me</span>
-                <span class="showOnPrint">{{ meta.contact.email }}</span>
-              </a>
+          <nav class="links" aria-label="primary">
+            <div class="p-contact">
+              <div class="contact-info as-contents">
+                <a
+                  class="u-email icon-link"
+                  href="mailto:{{ meta.contact.email }}"
+                >
+                  <svg aria-hidden="true" width="24" height="24">
+                    <use
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xlink:href="#icon-email"
+                    ></use>
+                  </svg>
+                  <span class="hideOnPrint">Email Me</span>
+                  <span class="showOnPrint">{{ meta.contact.email }}</span>
+                </a>
 
-              {% if meta.contact.phone %}
-              <a class="p-tel" href="tel:{{ meta.contact.phone }}">
-                <svg aria-hidden="true" width="24" height="24">
-                  <use
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="#icon-telephone"
-                  ></use>
-                </svg>
-                <span>{{ meta.contact.phone }}</span>
-              </a>
-              {% endif %}
+                {% if meta.contact.phone %}
+                <a class="p-tel icon-link" href="tel:{{ meta.contact.phone }}">
+                  <svg aria-hidden="true" width="24" height="24">
+                    <use
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xlink:href="#icon-telephone"
+                    ></use>
+                  </svg>
+                  <span>{{ meta.contact.phone }}</span>
+                </a>
+                {% endif %}
 
-              <a class="u-url" href="{{ meta.contact.website }}">
-                <svg aria-hidden="true" width="24" height="24">
-                  <use
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="#icon-laptop"
-                  ></use>
-                </svg>
-                <span>{{ meta.contact.website }}</span>
-              </a>
-            </div>
-            <div
-              class="social-media {% if meta.socials.hideonprint %} hideOnPrint {% endif %}"
-            >
-              <!-- prettier-ignore -->
-              {{ social_link("github", meta.socials.accounts.github) }}
+                <a class="u-url icon-link" href="{{ meta.contact.website }}">
+                  <svg aria-hidden="true" width="24" height="24">
+                    <use
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xlink:href="#icon-laptop"
+                    ></use>
+                  </svg>
+                  <span>{{ meta.contact.website }}</span>
+                </a>
+              </div>
+              <div
+                class="social-media as-contents {% if meta.socials.hideonprint %} hideOnPrint {% endif %}"
+              >
+                <!-- prettier-ignore -->
+                {{ social_link("github", meta.socials.accounts.github) }}
               {{ social_link("linkedin", meta.socials.accounts.linkedin) }}
+              </div>
             </div>
-          </div>
-          <button class="print-this" onclick="window.print()">
-            <svg aria-hidden="true" width="24" height="24">
-              <use
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                xlink:href="#icon-print"
-              ></use>
-            </svg>
-            <span>Print This</span>
-          </button>
+            <button class="print-this icon-link" onclick="window.print()">
+              <svg aria-hidden="true" width="24" height="24">
+                <use
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xlink:href="#icon-print"
+                ></use>
+              </svg>
+              <span>Print This</span>
+            </button>
+          </nav>
         </div>
       </div>
     </header>
     <main id="main" class="main container">
-      <article class="experience">
+      <article class="group experience">
         <h2 class="section-header">Work Experience</h2>
         <ol class="entrylist" role="list" reversed>
           {% for job in experience | reverse %}
           <li
-            class="h-event p-experience {% if job.hideonprint %} hideOnPrint {% endif %}"
+            class="h-event p-experience flow {% if job.hideonprint %} hideOnPrint {% endif %}"
           >
-            <p class="dates">
-              <!-- prettier-ignore -->
-              <time class="dt-start" datetime="{{ job.dates.start }}">{{ job.dates.start | pretty_date }}</time>
-              -
-              <!-- prettier-ignore -->
-              {% if job.dates.end %}
-              <!-- prettier-ignore -->
-              <time class="dt-end" datetime="{{ job.dates.end }}">{{ job.dates.end | pretty_date }}</time>
-              {% else %}
-              <span>Present</span>
-              {% endif %}
-            </p>
-            <h3 class="p-name">{{ job.job }}</h3>
-            <p class="organization p-org h-card">
-              <a
-                href="{{ job.employer.website }}"
-                class="p-name u-url"
-                rel="noreferrer nofollow"
-                >{{ job.employer.name }}</a
-              >
-              {{ interpunct() }}
-              <span class="p-location">{{ job.employer.city }}</span>
-            </p>
+            <div class="entry-header">
+              <div class="dates">
+                <!-- prettier-ignore -->
+                <time class="dt-start" datetime="{{ job.dates.start }}">{{ job.dates.start | pretty_date }}</time>
+                -
+                <!-- prettier-ignore -->
+                {% if job.dates.end %}
+                <!-- prettier-ignore -->
+                <time class="dt-end" datetime="{{ job.dates.end }}">{{ job.dates.end | pretty_date }}</time>
+                {% else %}
+                <span>Present</span>
+                {% endif %}
+              </div>
+              <h3 class="p-name">{{ job.job }}</h3>
+              <p class="p-org h-card">
+                <a
+                  href="{{ job.employer.website }}"
+                  class="p-name u-url"
+                  rel="noreferrer nofollow"
+                  >{{ job.employer.name }}</a
+                >
+                {{ interpunct() }}
+                <span class="p-location">{{ job.employer.city }}</span>
+              </p>
+            </div>
             <p class="p-summary">{{ job.responsibilities }}</p>
           </li>
           {% endfor %}
         </ol>
       </article>
-      <article class="education">
+      <article class="group education">
         <h2 class="section-header">Education</h2>
         <ol class="entrylist" role="list" reversed>
           {% for item in education %}
-          <li class="h-event p-education">
-            <div class="dates">
-              <!-- prettier-ignore -->
-              <time class="dt-start" datetime="{{ item.dates.start }}">{{ item.dates.start | pretty_date }}</time>
-              -
-              <!-- prettier-ignore -->
-              {% if item.dates.end %}
-              <!-- prettier-ignore -->
-              <time class="dt-end" datetime="{{ item.dates.end }}">{{ item.dates.end | pretty_date }}</time>
-              {% else %}
-              <span>Present</span>
-              {% endif %}
-            </div>
-            <h3 class="p-name">{{ item.degree }}</h3>
-            <div class="organization h-card p-org">
-              <a
-                href="{{ item.school.website }}"
-                class="p-name u-url"
-                rel="noreferrer nofollow"
-                >{{ item.school.name }}</a
-              >
-              {{ interpunct() }}
-              <span class="p-location">{{ item.school.city }}</span>
+          <li class="h-event p-education flow">
+            <div class="entry-header">
+              <div class="dates">
+                <!-- prettier-ignore -->
+                <time class="dt-start" datetime="{{ item.dates.start }}">{{ item.dates.start | pretty_date }}</time>
+                -
+                <!-- prettier-ignore -->
+                {% if item.dates.end %}
+                <!-- prettier-ignore -->
+                <time class="dt-end" datetime="{{ item.dates.end }}">{{ item.dates.end | pretty_date }}</time>
+                {% else %}
+                <span>Present</span>
+                {% endif %}
+              </div>
+              <h3 class="p-name">{{ item.degree }}</h3>
+              <p class="h-card p-org">
+                <a
+                  href="{{ item.school.website }}"
+                  class="p-name u-url"
+                  rel="noreferrer nofollow"
+                  >{{ item.school.name }}</a
+                >
+                {{ interpunct() }}
+                <span class="p-location">{{ item.school.city }}</span>
+              </p>
             </div>
           </li>
           {% endfor %}
         </ol>
       </article>
-      <article class="skills">
+      <article class="group skills">
         <h2 class="section-header">Skills</h2>
         <ul>
           {% for skill in skills %}
@@ -181,7 +190,7 @@
           {% endfor %}
         </ul>
       </article>
-      <article class="certifications">
+      <article class="group certifications">
         <h2 class="section-header">Certifications</h2>
         <ul>
           {% for cert in certifications %}
@@ -192,7 +201,7 @@
           {% endfor %}
         </ul>
       </article>
-      <article class="interests">
+      <article class="group interests">
         <h2 class="section-header">Interests</h2>
         <ul>
           {% for link in interests.links %}
