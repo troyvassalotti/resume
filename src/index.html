@@ -29,21 +29,10 @@
 
     <header class="header container">
       <div class="h-card">
-        <img
-          src="/static/img/{{ meta.picture }}"
-          alt="Me in the park, posing for a photo."
-          class="u-photo hideOnPrint"
-          width="300"
-          height="300"
-          loading="eager"
-          decoding="async"
-        />
         <div class="header__meta-content flow">
           <div class="name">
             <h1 class="p-name">{{ meta.name }}</h1>
-            <span class="p-gender-identity color-light italic">
-              ({{ meta.pronouns }})
-            </span>
+            <span class="p-gender-identity"> ({{ meta.pronouns }}) </span>
           </div>
           <p class="my-title">
             <span class="p-job-title">{{ meta.title }}</span>
@@ -52,7 +41,7 @@
           </p>
           <nav class="links" aria-label="primary">
             <div class="p-contact">
-              <div class="contact-info as-contents">
+              <div class="contact-info">
                 <a
                   class="u-email icon-link"
                   href="mailto:{{ meta.contact.email }}"
@@ -90,14 +79,17 @@
                 </a>
               </div>
               <div
-                class="social-media as-contents {% if meta.socials.hideonprint %} hideOnPrint {% endif %}"
+                class="social-media {% if meta.socials.hideonprint %} hideOnPrint {% endif %}"
               >
                 <!-- prettier-ignore -->
                 {{ social_link("github", meta.socials.accounts.github) }}
               {{ social_link("linkedin", meta.socials.accounts.linkedin) }}
               </div>
             </div>
-            <button class="print-this icon-link" onclick="window.print()">
+            <button
+              class="print-this icon-link hideOnPrint"
+              onclick="window.print()"
+            >
               <svg aria-hidden="true" width="24" height="24">
                 <use
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -119,6 +111,19 @@
             class="h-event p-experience flow {% if job.hideonprint %} hideOnPrint {% endif %}"
           >
             <div class="entry-header">
+              <div class="entry-header__details">
+                <h3 class="p-name">{{ job.job }}</h3>
+                <p class="p-org h-card">
+                  <a
+                    href="{{ job.employer.website }}"
+                    class="p-name u-url"
+                    rel="noreferrer nofollow"
+                    >{{ job.employer.name }}</a
+                  >
+                  {{ interpunct() }}
+                  <span class="p-location">{{ job.employer.city }}</span>
+                </p>
+              </div>
               <div class="dates">
                 <!-- prettier-ignore -->
                 <time class="dt-start" datetime="{{ job.dates.start }}">{{ job.dates.start | pretty_date }}</time>
@@ -131,17 +136,6 @@
                 <span>Present</span>
                 {% endif %}
               </div>
-              <h3 class="p-name">{{ job.job }}</h3>
-              <p class="p-org h-card">
-                <a
-                  href="{{ job.employer.website }}"
-                  class="p-name u-url"
-                  rel="noreferrer nofollow"
-                  >{{ job.employer.name }}</a
-                >
-                {{ interpunct() }}
-                <span class="p-location">{{ job.employer.city }}</span>
-              </p>
             </div>
             <p class="p-summary">{{ job.responsibilities }}</p>
           </li>
@@ -154,6 +148,19 @@
           {% for item in education %}
           <li class="h-event p-education flow">
             <div class="entry-header">
+              <div class="entry-header__details">
+                <h3 class="p-name">{{ item.degree }}</h3>
+                <p class="h-card p-org">
+                  <a
+                    href="{{ item.school.website }}"
+                    class="p-name u-url"
+                    rel="noreferrer nofollow"
+                    >{{ item.school.name }}</a
+                  >
+                  {{ interpunct() }}
+                  <span class="p-location">{{ item.school.city }}</span>
+                </p>
+              </div>
               <div class="dates">
                 <!-- prettier-ignore -->
                 <time class="dt-start" datetime="{{ item.dates.start }}">{{ item.dates.start | pretty_date }}</time>
@@ -166,17 +173,6 @@
                 <span>Present</span>
                 {% endif %}
               </div>
-              <h3 class="p-name">{{ item.degree }}</h3>
-              <p class="h-card p-org">
-                <a
-                  href="{{ item.school.website }}"
-                  class="p-name u-url"
-                  rel="noreferrer nofollow"
-                  >{{ item.school.name }}</a
-                >
-                {{ interpunct() }}
-                <span class="p-location">{{ item.school.city }}</span>
-              </p>
             </div>
           </li>
           {% endfor %}
@@ -201,12 +197,12 @@
           {% endfor %}
         </ul>
       </article>
-      <article class="group interests">
+      <article class="group interests hideOnPrint">
         <h2 class="section-header">Interests</h2>
         <ul>
           {% for link in interests.links %}
           <li>
-            <a href="{{ link.url }}" class="bold" rel="noreferrer nofollow"
+            <a href="{{ link.url }}" rel="noreferrer nofollow"
               >{{ link.name }}</a
             >: {{ link.desc }}
           </li>

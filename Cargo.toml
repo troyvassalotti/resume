@@ -4,6 +4,12 @@ version = "1.0.0"
 edition = "2021"
 default-run = "resume"
 
+[package.metadata.commands]
+build = "cargo run -- -c src/index.json -t src/index.html"
+serve = "cargo run --bin serve"
+preserve = "cargo cmd build"
+watch = "cargo watch -x 'cmd serve'"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
